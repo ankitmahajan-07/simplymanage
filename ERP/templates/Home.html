@@ -1,0 +1,345 @@
+{% load static %}
+<html>
+<head>
+	<style>
+		#div_bg_show
+		{
+    		position: relative;
+    		top: 330px;
+			transform: translateY(-50%);
+			width:900px;
+			right:0;left:0;
+			margin:auto;
+			height:400px;
+			background-color: #23214c;
+			box-shadow: 0 0 15px 9px #00000096;
+		}
+		body
+		{
+			background-image: url('{%static 'body.jpeg' %}');
+			background-repeat: no-repeat;
+		}
+		#dha
+		{
+			color:white;
+			position: absolute;
+			left:75%;
+			top:15%;
+		}
+		#suh
+		{
+			color:white;
+			position: absolute;
+			left:75%;
+			top:35%;
+		}
+		#register_show
+		{
+			color:white;
+			position: absolute;
+			left:75%;
+			top:50%;
+			font-weight: 600;
+    		font-size: 20px;
+    		height:12%;
+    		width:20%;
+    		background-color: #23214c;
+    		border-radius:10px;
+    		cursor:pointer;
+		}
+		#hac
+		{
+			color:white;
+			position: absolute;
+			left:7%;
+			top:15%;
+		}
+		#lih
+		{
+			color:white;
+			position: absolute;
+			left:7%;
+			top:35%;
+		}
+		#log_in_show
+		{
+			color:white;
+			position: absolute;
+			left:7%;
+			top:50%;
+			font-weight: 600;
+    		font-size: 20px;
+    		height:12%;
+    		width:20%;
+    		background-color: #23214c;
+    		border-radius:10px;
+    		cursor:pointer;
+		}
+
+		#div_fg_show1
+		{
+			background-color: rgba(255,255, 255, 1);
+			height:500px;
+			position:absolute;
+			top:70px;
+			width:420px;
+			left:260px;
+			z-index:0;
+			box-shadow: 0 0 15px 9px #00000096;
+			transition:1s;
+			background-image: url('{%static 'img3.jpeg' %}');
+		}
+		#head_login
+		{
+			font-weight: 600;
+    		font-size: 50px;
+    		position:relative;
+    		left:110px;
+    		top:10px;
+		}
+
+		.input-field
+		{
+			position: relative;
+			width: 40%;
+			margin-top: 50px;
+			margin-left:50px;
+		}
+		.input-field input
+		{
+			width: 300px;
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid #6666;
+			font-size: 20px;
+			color: black;
+			font-weight: 800;
+			resize: none;
+			position: relative;
+			top:20px;
+
+		}
+		.input-field label{
+			position: absolute;
+			font-family: palatino linotype;
+			top: 5px;
+			left: 20px;
+			padding-left: 10px;
+			pointer-events: none;
+			font-size: 25px;
+			color: #666;
+			font-weight: 600;
+			transition: 0.5s;
+		}
+		.input-field input:focus+label,.input-field input:valid+label
+		{
+			top: -33px;
+			left: -7px;
+			font-size: 30px;
+			padding: 2px 2px;
+
+			color: black;
+			border-radius: 4px;
+		}
+		.btn
+		{
+			margin-top: 50px;
+			margin-left:50px;
+			background-color: cadetblue;
+			color: #fff;
+			padding: 15px 30px;
+			border:none;
+			opacity: 1.7;
+			width: 73%;
+			outline: none;
+			border-radius: 30px;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 16px;
+			transition: .5s;
+			left: 30%;
+		}
+
+		#remember
+		{
+			font-size: 22px;
+			font-weight: 500;
+			position: relative;
+			left:55px;
+			top:33px;
+		}
+		#forgot
+		{
+			position:relative;
+			left:220px;
+			top:10px;
+			cursor:pointer;
+			color:black;
+		}
+		div.scroll {
+        	margin:4px, 4px;
+            padding:4px;
+            width: 300px;
+            height: 110px;
+            overflow-x: hidden;
+            text-align:justify;
+            }
+        #head_signup
+		{
+			font-weight: 600;
+    		font-size: 50px;
+    		position:relative;
+    		left:110px;
+    		top:10px;
+		}
+		#error
+		{
+			position:absolute;
+    		left:60px;
+    		top:90px;
+    		color:red;
+		}
+
+		#sign_up_form
+		{
+			display:none;
+		}
+		#contact-about
+		{
+			height:400px;
+			width:96%;
+			background:transparent;
+			margin-top:220px;
+			box-shadow: 0 0 15px 9px #00000096;
+			position:relative;
+			left:25px;
+		}
+		#divider
+		{
+			background:grey;
+			width:5px;
+			height:350px;
+			border-radius:10px;
+			position:relative;
+			top:-30px;
+			left:900px;
+		}
+	</style>
+
+	<script>
+
+		function div_ch1()
+		{
+			document.getElementById("div_fg_show1").style="transform: translate(+36%, -1%); width:730px;height:530;background-image: url('{%static 'img3.jpeg' %}');";
+			document.getElementById("log_in_form").style="display:none";
+			document.getElementById("sign_up_form").style="display:block;";
+			document.getElementById("sub").style="position:relative; top: -15px;left:210px;";
+			document.getElementById("div_bg_show").style="background-image: url('{%static 'img5.jpeg' %}')";
+		}
+
+		function div_ch2()
+		{
+			document.getElementById("div_fg_show1").style="transform: translateX(0%);";
+			document.getElementById("log_in_form").style="display:block";
+			document.getElementById("sign_up_form").style="display:none";
+			document.getElementById("div_bg_show").style="background-image: url('{%static 'img5.jpeg' %}')";
+
+		}
+	</script>
+</head>
+
+<body>
+
+<div id="div_bg_show">
+	<div id="sign_up_div">
+		<h1 id="dha"> Don't have an <br> account ? </h1>
+		<h2 id="suh"> Sign up Here !! </h2>
+		<input type="button" value="Register" id="register_show" onclick="div_ch1()">
+	</div>
+
+	<div id="log_in_div">
+		<h1 id="hac"> Already have an <br> account ? </h1>
+		<h2 id="lih"> Log In Here !! </h2>
+		<input type="button" value="Log In" id="log_in_show" onclick="div_ch2()">
+	</div>
+</div>
+
+<div class="scroll" id="div_fg_show1">
+	<form method="post" action="/" name="Log_In" id="log_in_form"> {% csrf_token %}
+		<h1 id="head_login"> LOG IN </h1>
+		<h2 id="error"> {{params.error}} </h2>
+		<div class="input-field">
+			<input autocomplete="off" id="uname" type="text" name="uname" required="">
+			<label>Username</label>
+		</div>
+		<div class="input-field">
+			<input autocomplete="off" type="Password" name="pword" required="">
+			<label>Password</label>
+		</div>
+		<div>
+			<label class="checkbox-inline" id="remember">
+			<input type="checkbox" name="remember" checked>&nbsp;&nbsp;Remember Me</label>
+		</div>
+		<input type="submit" name="log_in" value="Log In" class="btn" onclick="errshow()"><br>
+		<a href="/forgot"> <label id="forgot">Forgot Password ?</label> </a>
+	</form>
+
+<form method="post" action="/login" id="sign_up_form"> {% csrf_token %}
+		<table>
+		<tr><td>
+		<div class="input-field">
+			<input autocomplete="off" type="text" name="inst_name" required="">
+			<label>Institute&nbsp;Name</label>
+		</div></td><td>
+		<div class="input-field">
+			<input autocomplete="off" type="text" name="own_name" required="">
+			<label>Owner&nbsp;Name</label>
+		</div></td></tr>
+		<tr><td>
+		<div class="input-field">
+			<input autocomplete="off" type="text" name="state" required="">
+			<label>State</label>
+		</div></td><td>
+		<div class="input-field">
+			<input autocomplete="off" type="text" name="city" required="">
+			<label>City</label>
+		</div></td></tr>
+		<tr><td>
+		<div class="input-field">
+			<input autocomplete="off" type="int" name="mobile" required="">
+			<label>Mobile</label>
+		</div></td><td>
+		<div class="input-field">
+			<input autocomplete="off" type="text" name="email" required="">
+			<label>Email</label>
+		</div></td></tr>
+		<tr><td>
+		<div class="input-field">
+			<input autocomplete="off" type="Username" name="username" required="">
+			<label>Username</label>
+		</div></td><td>
+		<div class="input-field">
+			<input autocomplete="off" id="pwd" type="Password" name="pwd" required="">
+			<label>Password</label>
+		</div></td></tr>
+		<tr><td>
+		<div class="input-field">
+			<input autocomplete="off" id="confpwd" type="password" name="" required="">
+			<label>Confirm&nbsp;Password</label>
+		</div></td></tr><tr><td>
+		<input type="submit" name="sign_up" value="Sign Up" class="btn" id="sub"></td></tr>
+	</table>
+	</form>
+</div>
+
+<div id="contact-about">
+	<h1 style="color:white;position:relative;left:30px;top:30px;">ABOUT US:</h1>
+	<div id="divider">
+	</div>
+</div>
+</body>
+</html>

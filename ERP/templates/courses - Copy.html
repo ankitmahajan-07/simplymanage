@@ -1,0 +1,314 @@
+{%extends 'inherit.html'%}
+
+        {%block css%}
+        .beautify
+        {
+            height:60px;
+            width:270px;
+            font-family:palatino linotype;
+            font-size:30px;
+            border-radius:20px;
+            box-shadow: 2px 2px 10px black;
+            margin-right:25px;
+            pointer:cursor;
+        }
+
+        #div_bg_show
+		{
+			width:720px;
+			height:400px;
+			margin-left:135px;
+			margin-top:50px;
+			background-color: #23214c;
+			border-radius:20px;
+			box-shadow: 1px 1px 10px 9px grey;
+		}
+		.input-field
+		{
+			position: relative;
+			top:-15px;
+			width: 40%;
+			margin-top: 60px;
+			margin-left:40px;
+		}
+		.input-field input
+		{
+			width: 300px;
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid #6666;
+			font-size: 20px;
+			color: white;
+			font-weight: 800;
+			resize: none;
+			position: relative;
+			top:15px;
+
+		}
+		.input-field label{
+			position: absolute;
+			font-family: palatino linotype;
+			top: 5px;
+			left: 20px;
+			padding-left: 15px;
+			pointer-events: none;
+			font-size: 23px;
+			color: white;
+			font-weight: 600;
+			transition: 0.5s;
+		}
+		.input-field input:focus+label,.input-field input:valid+label
+		{
+			top: -33px;
+			left: -7px;
+			font-size: 28px;
+			padding: 2px 2px;
+			color: white;
+			border-radius: 4px;
+		}
+		.btn
+		{
+			margin-top: 50px;
+			margin-left:230px;
+			font-family: palatino linotype;
+			background-color: cadetblue;
+			color: #fff;
+			padding: 10px 20px;
+			border:none;
+			width: 300px;
+			outline: none;
+			border-radius: 15px;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 25px;
+			transition: .5s;
+			box-shadow: 2px 2px 10px black;
+		}
+
+		.headings
+		{
+		    color:white;
+		    font-family:palatino linotype;
+		    padding-left:50px;
+		    padding-top:20px;
+		}
+		.table-bordered
+		{
+		    text-align:center;
+		    font-family: palatino linotype;
+		    margin-top:30px;
+		    border-width:2px;
+		    border-color:black;
+		}
+
+		.search
+		{
+		    border-radius:15px;
+		    font-size:20px;
+		    height:40px;
+		    width:275px;
+		    margin-left:650px;
+		}
+		.btn-search
+		{
+		    border-radius:15px;
+		}
+		.search_div
+		{
+		    margin-top:30px;
+		    margin-bottom:-15px;
+		}
+        .popup
+        {
+            height:200px;
+            width:500px;
+            box-shadow: 2px 2px 10px black;
+            position:absolute;
+            top:200px;
+            left:480px;
+            background:#d7d9dd;
+            display:none;
+
+        }
+        #pop_head
+        {
+            margin-top:40px;
+
+        }
+        .radio-inline
+        {
+            margin-top:30px;
+            margin-left:135px;
+        }
+        {%endblock%}
+
+        {%block body%}
+
+        <div class="main-panel" style="margin-left:270px;">
+
+          <div class="content-wrapper" style="background:#dce6e4;">
+
+            <!-- Page Title Header Ends-->
+
+            <!--  Dashboard main starts -->
+              <center><div>
+                  <button type="button" class="beautify btn-success" onclick="show_add_course()"> Add Courses </button>
+                  <button type="button" class="beautify btn-warning" onclick="show_change_course()"> Edit Courses </button>
+                  <button type="button" class="beautify btn-danger" onclick="hide_div_bg()"> Remove Courses </button>
+              </div></center>
+
+              <div id="div_bg_show"style="display:none;">
+                <form method="post" id="add_course"> {% csrf_token %}
+                    <table>
+                        <tr><th colspan="2">
+                            <h1 class="headings">
+                                Fill your course details here :
+                            </h1>
+                        </th></tr>
+                        <tr><td>
+                        <div class="input-field">
+                            <input style="text-transform:uppercase;" autocomplete="off"type="text" name="course_name" required="">
+                            <label>Course&nbsp;Name</label>
+                        </div></td><td>
+                        <div class="input-field">
+                            <input autocomplete="off" type="number" name="duration" required="">
+                            <label>&nbsp;Duration&nbsp;(in&nbsp;months) </label>
+                        </div></td></tr>
+                        <tr><td>
+                        <div class="input-field">
+                            <input autocomplete="off" type="number" name="fee" required="">
+                            <label>Course&nbsp;Fee</label>
+                        </div></td><td>
+                        <div class="input-field">
+                            <input autocomplete="off" type="number" name="reg_amt" required="">
+                            <label>Registration&nbsp;Amount</label>
+                        </div></td></tr>
+                        <tr><td colspan="2">
+                        <input type="text" value="{{user_details.id}}" name="get_id" style="display:none">
+                        <input type="submit" name="add" value="Save" class="btn">
+                        </td></tr>
+                    </table>
+                </form>
+
+                <form method="post" id="change" style="display:none"> {% csrf_token %}
+                    <input autocomplete="off" style="display:none;" id="c_id" type="text" name="course_id">
+                    <table>
+                        <tr><th colspan="2">
+                            <h1 class="headings">
+                                Fill your course details here :
+                            </h1>
+                        </th></tr>
+                        <tr><td>
+                        <div class="input-field">
+                            <input autocomplete="off" id="c_name" type="text" name="course_name" required="">
+                            <label>Course&nbsp;Name</label>
+                        </div></td><td>
+                        <div class="input-field">
+                            <input autocomplete="off" id="duration" type="number" name="duration" required="">
+                            <label>&nbsp;Duration&nbsp;(in&nbsp;months) </label>
+                        </div></td></tr>
+                        <tr><td>
+                        <div class="input-field">
+                            <input autocomplete="off" id="fee" type="number" name="fee" required="">
+                            <label>Course&nbsp;Fee</label>
+                        </div></td><td>
+                        <div class="input-field">
+                            <input id="reg_amt" autocomplete="off" type="number" name="reg_amt" required="">
+                            <label>Registration&nbsp;Amount</label>
+                        </div></td></tr>
+                        <tr><td colspan="2">
+                        <input type="submit" name="change" value="Make Changes" class="btn">
+                        </td></tr>
+                    </table>
+                </form>
+              </div>
+
+              <div class="search_div">
+                  <form method="post" action="/courses"> {% csrf_token %}
+                      <table><tr><th>
+                        <input style="text-transform:uppercase;" class="search" type="text" name="search" placeholder="Search here">
+                        </th><th><button type="submit" name="btn-search" class=" btn-search btn-success"><i class="material-icons" style="font-size:33px">search</i>
+                      </button></th>
+                        </tr>
+                      </table>
+                  </form>
+              </div>
+
+              <div class="popup" id="popup">
+                  <form method="post" action="/courses"> {% csrf_token %}
+                        <input autocomplete="off" style="display:none;" id="course_id" type="text" name="course_id">
+                        <center><h4 id="pop_head">Do you really want to remove this course ?</h4></center>
+                        <label class="radio-inline">
+                          <input type="radio" name="optradio" value="YES">YES
+                        </label>
+                        <label class="radio-inline">
+                          <input type="radio" name="optradio">NO
+                        </label><br><br>
+                        <center><input type="submit" class="btn-danger" name="popup"></center>
+                  </form>
+              </div>
+
+              <div class="container">
+                  <table id="course_table" class="table table-hover table-bordered">
+                    <tr><th>ID</th><th>Course Name</th><th>Duration</th><th>Fee</th><th>Reg Amount</th><tr>
+                    {%for i in params.table%}
+                    <tr>
+                      <td>{{i.id}}</td>
+                      <td>{{i.Course_Name}}</td>
+                      <td>{{i.Duration}}</td>
+                      <td>{{i.Fee}}</td>
+                      <td>{{i.Reg_amt}}</td>
+                      </tr>
+                    {%endfor%}
+                  </table>
+              </div>
+          </div>
+        </div>
+        <script>
+        function show_add_course()
+        {
+            document.getElementById('div_bg_show').style="display:block;";
+            document.getElementById('add_course').style="display:block;";
+            document.getElementById('change').style="display:none;";
+        }
+        function show_change_course()
+        {
+            document.getElementById('add_course').style="display:none;";
+            document.getElementById('div_bg_show').style="display:none;";
+            var table = document.getElementById('course_table'),rIndex;
+            for(var i=0; i<table.rows.length; i++)
+            {
+                table.rows[i].onclick = function()
+                {
+                    document.getElementById('div_bg_show').style="display:block;";
+                    document.getElementById('change').style="display:block;";
+                    rIndex = this.rowIndex;
+                    document.getElementById('c_id').value=this.cells[0].innerHTML;
+                    document.getElementById('c_name').value=this.cells[1].innerHTML;
+                    document.getElementById('duration').value=this.cells[2].innerHTML;
+                    document.getElementById('fee').value=this.cells[3].innerHTML;
+                    document.getElementById('reg_amt').value=this.cells[4].innerHTML;
+                };
+            }
+        }
+        function hide_div_bg()
+        {
+            document.getElementById('div_bg_show').style="display:none;";
+            var table = document.getElementById('course_table'),rIndex;
+            for(var i=0; i<table.rows.length; i++)
+            {
+                table.rows[i].onclick = function()
+                {
+                    document.getElementById('popup').style="display:block;";
+                    rIndex = this.rowIndex;
+                    document.getElementById('course_id').value=this.cells[0].innerHTML;
+                };
+            }
+        }
+        </script>
+
+        {%endblock%}

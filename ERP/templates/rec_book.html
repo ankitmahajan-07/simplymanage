@@ -1,0 +1,65 @@
+{%extends 'inherit.html' %}
+
+{%block css%}
+        .table-bordered
+		{
+		    text-align:center;
+		    font-family: palatino linotype;
+		    margin-top:30px;
+		    border-width:2px;
+		    border-color:black;
+            width:900px;
+		}
+		.search
+		{
+		    border-radius:15px;
+		    font-size:20px;
+		    height:40px;
+		    width:275px;
+		    margin-left:900px;
+		}
+		.btn-search
+		{
+		    border-radius:15px;
+		}
+		.search_div
+		{
+		    margin-top:30px;
+		    margin-bottom:-15px;
+		}
+        .container
+        {
+            position:relative;
+            left:-900px;
+            top: 60px;
+        }
+{%endblock%}
+
+{%block body%}
+    <div class="search_div">
+        <form method="post" name="search" action="/rec_book"> {% csrf_token %}
+            <table><tr><th>
+                <input style="text-transform:uppercase;" class="search" type="text" name="get_search" placeholder="Search here">
+            </th><th><button type="submit" name="btn-search" class=" btn-search btn-success"><i class="material-icons" style="font-size:33px">search</i>
+            </button></th>
+            </tr>
+            </table>
+        </form>
+    </div>
+
+    <div class="container">
+        <table id="students_table" class="table table-hover table-bordered">
+            <tr><th>ID</th><th>Date</th><th>Name</th><th>Mobile</th><th>Course Name</th><th>Amount</th></tr>
+            {%for i in params.receipt%}
+            <tr>
+                <td>{{i.id}}</td>
+                <td>{{i.Date}}</td>
+                <td>{{i.Name}}</td>
+                <td>{{i.Mobile}}</td>
+                <td>{{i.Course}}</td>
+                <td>{{i.Amount}}</td>
+            </tr>
+            {%endfor%}
+        </table>
+    </div>
+{%endblock%}

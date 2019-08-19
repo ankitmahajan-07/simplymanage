@@ -1,0 +1,221 @@
+{%load static %}
+
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> dashboard </title>
+
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="{%static 'img3.jpeg'%}" />
+<!--    <link rel="stylesheet" href="{% static 'CSS/dashboard.css' %}">-->
+    <style>
+        .custom
+        {
+        margin-left:50px;
+        color:white;
+        pointer:cursor;
+        }
+        .premium
+        {
+        border-radius:10px;
+        height:45px;
+        margin-top:9px;
+        background:transparent;
+        color:white;
+        margin-left:850px;
+        }
+        {%block css%} {%endblock%}
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container-scroller">
+
+      <!-- partial:partials/_navbar.html -->
+
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top" style="width:100%;background:#09104c">
+          <h3 style="color:white;margin-left:50px;margin-top:20px;font-family:palatino linotype"> {{params.user_details.Institute_Name}} </h3>
+          <button class="premium">Switch To Premium Account</button>
+        </div>
+
+      </nav>
+
+      <div class="container-fluid page-body-wrapper">
+
+        <!-- partial:partials/_sidebar.html -->
+
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="position:fixed;background:#09104c">
+
+          <ul class="nav">
+
+            <li class="nav-item nav-profile">
+
+              <a href="#" class="nav-link">
+
+                <div class="profile-image">
+
+                  <i class="material-icons" style="font-size:36px">account_circle</i>
+                  <div class="dot-indicator bg-success"></div>
+
+                </div>
+
+                <div class="text-wrapper">
+
+                  <p class="profile-name"> {{params.user_details.Username}} </p>
+
+                  <p class="designation">Demo user</p>
+
+                </div>
+
+              </a>
+
+            </li>
+            <table><tr><td>
+              <li class="nav-item nav-category">Main Menu</li></td>
+              <td><i class="material-icons" style="font-size:30px;color:white">menu</i></td>
+            </tr></table>
+
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/Dashboard">
+
+                <i class="menu-icon typcn typcn-document-text"></i>
+
+                <span class="menu-title">Dashboard</span>
+
+                <i class="material-icons" style="font-size:27px;margin-left:90px;">dashboard</i>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/courses">
+
+                <i class="menu-icon typcn typcn-coffee"></i>
+
+                <span class="menu-title">Course Manager</span>
+
+                <img src="https://img.icons8.com/color/32/000000/courses.png" style="margin-left:50px;">
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/students">
+
+                <i class="menu-icon typcn typcn-shopping-bag"></i>
+
+                <span class="menu-title">Students Manager</span>
+
+                <img src="https://img.icons8.com/color/36/000000/students.png" style="margin-left:36px;">
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="#" onclick="show_forms()">
+
+                <i class="menu-icon typcn typcn-user-outline"></i>
+
+                <span class="menu-title">Forms</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="material-icons" style="font-size:30px">arrow_drop_down</i>
+
+              </a>
+
+            </li>
+            <li id="ddown" style="display:none;">
+              <div>
+                <a  href="/enquiry"><h6 onclick="show_enq_form()" class="custom">Enquiry Form</h6></a>
+                <a  href="/admission"><h6 class="custom">Admission Form</h6></a>
+                <a  href="/receipt"><h6 class="custom">Registration/Fee Receipt</h6></a>
+              </div>
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/rec_book">
+
+                <i class="menu-icon typcn typcn-th-large-outline"></i>
+
+                <span class="menu-title">Receipt Book</span>
+
+                <img src="https://img.icons8.com/color/36/000000/ledger.png" style="margin-left:70px;">
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/enq_book">
+
+                <i class="menu-icon typcn typcn-th-large-outline"></i>
+
+                <span class="menu-title">Enquiry Book</span>
+
+                <img src="https://img.icons8.com/color/36/000000/reading.png" style="margin-left:70px;">
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/logout">
+
+                <i class="menu-icon typcn typcn-th-large-outline"></i>
+
+                <span class="menu-title">Log Out</span>
+
+                <i class="material-icons" style="font-size:30px;margin-left:105px;">exit_to_app</i>
+
+              </a>
+
+            </li>
+
+          </ul>
+        </nav>
+
+        {%block body%} {%endblock%}
+            <!-- End custom js for this page-->
+      </div>
+    </div>
+    <script>
+      function show_forms()
+              {
+                var x = document.getElementById("ddown");
+                if(x.style.display == "none")
+                {
+                    x.style.display = "block";
+                }
+                else
+                {
+                    x.style.display = "none";
+                }
+              }
+    </script>
+  </body>
+
+</html>

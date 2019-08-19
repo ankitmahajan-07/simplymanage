@@ -1,0 +1,382 @@
+{%load static %}
+
+<html lang="en">
+
+<head>
+
+    <!-- Required meta tags -->
+
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title> dashboard </title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="shortcut icon" href="{%static 'img3.jpeg'%}" />
+
+    <style>
+      		.table-bordered
+		{
+		    text-align:center;
+		    font-family: palatino linotype;
+		    margin-top:30px;
+		    border-width:2px;
+		    border-color:black;
+		}
+
+		.search
+		{
+		    border-radius:15px;
+		    font-size:20px;
+		    height:40px;
+		    width:275px;
+		    margin-left:650px;
+		}
+		.btn-search
+		{
+		    border-radius:15px;
+		}
+		.search_div
+		{
+		    margin-top:30px;
+		    margin-bottom:-15px;
+		}
+		.show_details
+		{
+		  width:900px;
+		  height:100%;
+		  margin:auto;
+          box-shadow: 1px 1px 10px 9px grey;
+		}
+		.input-field
+		{
+		    width: 300px;
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: black;
+			font-weight: 800;
+			resize: none;
+			position:relative;
+			left:100px;
+			top:30px;
+
+		}
+		.input-field2
+		{
+		    width: 200px;
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: white;
+			font-weight: 800;
+			resize: none;
+			position:relative;
+			left:100px;
+			top:50px;
+		}
+		.input-field3
+		{
+		    width: 200px;
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: white;
+			font-weight: 800;
+			resize: none;
+			position:relative;
+			left:100px;
+			top:80px;
+		}
+		.input-field4
+		{
+		    width: 200px;
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: white;
+			font-weight: 800;
+			resize: none;
+			position:relative;
+			left:100px;
+			top:110px;
+		}
+		.headings
+		{
+		  font-family: palatino linotype;
+		  position:relative;
+		  left:80px;
+		  top:40px;
+		}
+		.headings2
+		{
+		  font-family: palatino linotype;
+		  position:relative;
+		  left:80px;
+		  top:60px;
+		}
+		.headings3
+		{
+		  font-family: palatino linotype;
+		  position:relative;
+		  left:80px;
+		  top:90px;
+		}
+		.headings4
+		{
+		  font-family: palatino linotype;
+		  position:relative;
+		  left:80px;
+		  top:120px;
+		}
+		.image
+		{
+		  height:240px;
+		  width:200px;
+		  box-shadow: 1px 1px 10px 9px grey;
+		  margin-top:60px;
+		  margin-left:200px;
+		}
+		#text-area
+		{
+		  height:100px;
+		  width:300px;
+		  border-color:black;
+		  border-width:1px;
+		  position:relative;
+		  top:30px;
+		  left:100px;
+		}
+    </style>
+
+
+</head>
+
+<body>
+
+    <div class="container-scroller">
+
+      <!-- partial:partials/_navbar.html -->
+
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="width:100%;">
+          <h2 style="margin-left:-1050px;margin-top:10px;font-family:palatino linotype"> Institute Name </h2>
+        </div>
+      </nav>
+
+      <div class="container-fluid page-body-wrapper">
+
+        <!-- partial:partials/_sidebar.html -->
+
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="position:fixed;">
+
+          <ul class="nav">
+
+            <li class="nav-item nav-profile">
+
+              <a href="#" class="nav-link">
+
+                <div class="profile-image">
+
+                  <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="profile image">
+
+                  <div class="dot-indicator bg-success"></div>
+
+                </div>
+
+                <div class="text-wrapper">
+
+                  <p class="profile-name"> Username </p>
+
+                  <p class="designation">Premium user</p>
+
+                </div>
+
+              </a>
+
+            </li>
+            <table><tr><td>
+              <li class="nav-item nav-category">Main Menu</li></td>
+              <td><i class="material-icons" style="font-size:30px;color:white">menu</i></td>
+            </tr></table>
+
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/dashboard">
+
+                <i class="menu-icon typcn typcn-document-text"></i>
+
+                <span class="menu-title">Dashboard</span>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="dashboard/courses">
+
+                <i class="menu-icon typcn typcn-coffee"></i>
+
+                <span class="menu-title">Course Manager</span>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/students">
+
+                <i class="menu-icon typcn typcn-shopping-bag"></i>
+
+                <span class="menu-title">Students Manager</span>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="dashboard/staff">
+
+                <i class="menu-icon typcn typcn-th-large-outline"></i>
+
+                <span class="menu-title">Staff Manager</span>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="pages/icons/font-awesome.html">
+
+                <i class="menu-icon typcn typcn-user-outline"></i>
+
+                <span class="menu-title">Forms</span>
+
+              </a>
+
+            </li>
+          </ul>
+        </nav>
+
+        <!-- partial -->
+
+        <div class="main-panel" style="margin-left:270px;">
+
+          <div class="content-wrapper">
+
+            <!-- Page Title Header Ends-->
+
+            <!--  Dashboard main starts -->
+
+              <div class="show_details">
+                <table>
+                  <tr>
+                    <td><h4 class="headings">Name</h4></td>
+                    <td><input class="input-field" type="text" readonly> </td>
+                    <td colspan="2" rowspan="3">
+                      <div class="image">
+                        <input type="image" readonly>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings">Father's&nbsp;Name</h4></td>
+                    <td><input class="input-field" type="text" readonly> </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings">Address</h4></td>
+                    <td><input id="text-area" type="text" readonly> </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings">Phone No.</h4></td>
+                    <td><input class="input-field" type="text" readonly> </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings2">Course&nbsp;Name</h4></td>
+                    <td><input class="input-field2" type="text" readonly> </td>
+                    <td><h4 class="headings2">Duration</h4></td>
+                    <td><input class="input-field2" type="text" readonly> </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings3">Reg.&nbsp;Date</h4></td>
+                    <td><input class="input-field3" type="text" readonly> </td>
+                    <td><h4 class="headings3">Total&nbsp;Fee</h4></td>
+                    <td><input class="input-field3" type="text" readonly> </td>
+                  </tr>
+                  <tr>
+                    <td><h4 class="headings4">Paid&nbsp;Fee</h4></td>
+                    <td><input class="input-field4" type="text" readonly> </td>
+                    <td><h4 class="headings4">Balance&nbsp;Fee</h4></td>
+                    <td><input class="input-field4" type="text" readonly> </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="search_div">
+                  <table><tr><th>
+                    <input class="search" type="text" name="search" placeholder="Search here">
+                    </th><th><button type="button" class=" btn-search btn-success"><i class="material-icons" style="font-size:33px">search</i>
+                    </button></th>
+                    </tr>
+                  </table>
+              </div>
+
+              <div class="container">
+                  <table class="table table-hover table-bordered">
+                    <tr><th>ID</th><th>Name</th><th>Specialization</th><th>Joining Date</th><th>Phone No.</th><th>More Details</th><tr>
+                    <tr><td>101</td><td>Rahul</td><td>21</td><tr>
+                    <tr><td>102</td><td>Dhiraj</td><td>22</td><tr>
+                    <tr><td>103</td><td>Mohit</td><td>23</td><tr>
+                    <tr><td>104</td><td>Ankit</td><td>24</td><tr>
+                  </table>
+              </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+            <!--  Dashboard main ends -->
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{% static 'index.js' %}"></script>
+
+    <!-- End custom js for this page-->
+
+  </body>
+
+</html>

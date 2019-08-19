@@ -1,0 +1,293 @@
+{%extends 'inherit.html' %}
+
+        {%block css%}
+        .beautify
+        {
+            height:60px;
+            width:270px;
+            font-family:palatino linotype;
+            font-size:30px;
+            border-radius:20px;
+            box-shadow: 2px 2px 10px black;
+            margin-right:25px;
+            pointer:cursor;
+        }
+
+        #div_bg_show
+		{
+			width:720px;
+			height:400px;
+			margin-left:135px;
+			margin-top:50px;
+			background-color: #23214c;
+			border-radius:20px;
+			box-shadow: 1px 1px 10px 9px grey;
+		}
+		.input-field
+		{
+			position: relative;
+			top:-15px;
+			width: 40%;
+			margin-top: 60px;
+			margin-left:40px;
+		}
+		.input-field input
+		{
+			width: 300px;
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid #6666;
+			font-size: 20px;
+			color: white;
+			font-weight: 800;
+			resize: none;
+			position: relative;
+			top:15px;
+
+		}
+		.input-field label{
+			position: absolute;
+			font-family: palatino linotype;
+			top: 5px;
+			left: 20px;
+			padding-left: 15px;
+			pointer-events: none;
+			font-size: 23px;
+			color: white;
+			font-weight: 600;
+			transition: 0.5s;
+		}
+		.input-field input:focus+label,.input-field input:valid+label
+		{
+			top: -33px;
+			left: -7px;
+			font-size: 28px;
+			padding: 2px 2px;
+			color: white;
+			border-radius: 4px;
+		}
+		.btn
+		{
+			margin-top: 50px;
+			margin-left:230px;
+			font-family: palatino linotype;
+			background-color: cadetblue;
+			color: #fff;
+			padding: 10px 20px;
+			border:none;
+			width: 300px;
+			outline: none;
+			border-radius: 15px;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 25px;
+			transition: .5s;
+			box-shadow: 2px 2px 10px black;
+		}
+
+		.headings
+		{
+		    color:white;
+		    font-family:palatino linotype;
+		    padding-left:50px;
+		    padding-top:20px;
+		}
+		.table-bordered
+		{
+		    text-align:center;
+		    font-family: palatino linotype;
+		    margin-top:30px;
+		    border-width:2px;
+		    border-color:black;
+		}
+
+		.search
+		{
+		    border-radius:15px;
+		    font-size:20px;
+		    height:40px;
+		    width:275px;
+		    margin-left:650px;
+		}
+		.btn-search
+		{
+		    border-radius:15px;
+		}
+		.search_div
+		{
+		    margin-top:30px;
+		    margin-bottom:-15px;
+		}
+        {%endblock%}
+
+        {%block body%}
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container-scroller">
+
+      <!-- partial:partials/_navbar.html -->
+
+      <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+
+        <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="width:100%;">
+          <h2 style="margin-left:-1050px;margin-top:10px;font-family:palatino linotype"> Institute Name </h2>
+        </div>
+      </nav>
+
+      <div class="container-fluid page-body-wrapper">
+
+        <!-- partial:partials/_sidebar.html -->
+
+        <nav class="sidebar sidebar-offcanvas" id="sidebar" style="position:fixed;">
+
+          <ul class="nav">
+
+            <li class="nav-item nav-profile">
+
+              <a href="#" class="nav-link">
+
+                <div class="profile-image">
+
+                  <img class="img-xs rounded-circle" src="../assets/images/faces/face8.jpg" alt="profile image">
+
+                  <div class="dot-indicator bg-success"></div>
+
+                </div>
+
+                <div class="text-wrapper">
+
+                  <p class="profile-name"> Username </p>
+
+                  <p class="designation">Premium user</p>
+
+                </div>
+
+              </a>
+
+            </li>
+            <table><tr><td>
+              <li class="nav-item nav-category">Main Menu</li></td>
+              <td><i class="material-icons" style="font-size:30px;color:white">menu</i></td>
+            </tr></table>
+
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/dashboard">
+
+                <i class="menu-icon typcn typcn-document-text"></i>
+
+                <span class="menu-title">Dashboard</span>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="dashboard/courses">
+
+                <i class="menu-icon typcn typcn-coffee"></i>
+
+                <span class="menu-title">Course Manager</span>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/students">
+
+                <i class="menu-icon typcn typcn-shopping-bag"></i>
+
+                <span class="menu-title">Students Manager</span>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="/dashboard/staff" onfocus="show_ddown()">
+
+                <span class="menu-title">Staff Manager</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <i class="material-icons" style="font-size:30px">arrow_drop_down</i>
+
+              </a>
+
+            </li>
+
+            <li class="nav-item">
+
+              <a class="nav-link" href="pages/icons/font-awesome.html">
+
+                <i class="menu-icon typcn typcn-user-outline"></i>
+
+                <span class="menu-title">Forms</span>
+
+              </a>
+
+            </li>
+          </ul>
+        </nav>
+
+        <!-- partial -->
+
+        <div class="main-panel" style="margin-left:270px;">
+
+          <div class="content-wrapper">
+
+            <!-- Page Title Header Ends-->
+
+            <!--  Dashboard main starts -->
+              <center><div>
+                  <button type="button" class="beautify btn-success" onclick="show_add_course()"> Add Courses </button>
+                  <button type="button" class="beautify btn-warning" onclick="show_change_course()"> Edit Courses </button>
+                  <button type="button" class="beautify btn-danger" onclick="hide_div_bg()"> Remove Courses </button>
+              </div></center>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+            <!--  Dashboard main ends -->
+
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script src="{% static 'index.js' %}"></script>
+    <script type="text/javascript">
+        function show_add_course()
+        {
+            document.getElementById('div_bg_show').style="display:block;";
+            document.getElementById('add_course').style="display:block;";
+            document.getElementById('change').style="display:none;";
+        }
+        function show_change_course()
+        {
+            document.getElementById('change').style="display:block";
+            document.getElementById('add_course').style="display:none;";
+        }
+        function hide_div_bg()
+        {
+            document.getElementById('div_bg_show').style="display:none;";
+        }
+
+    </script>
+
+    <!-- End custom js for this page-->
+
+  </body>
+
+</html>

@@ -1,0 +1,373 @@
+
+{%extends 'inherit.html' %}
+{%load static %}
+        {%block css%}
+        .edit
+        {
+        position:relative;
+		top:140px;
+		left:300px;
+		width:120px;
+		height:40px;
+		border-radius:15px;
+        }
+        .custom
+        {
+        margin-left:50px;
+        color:white;
+        pointer:cursor;
+        }
+        .input-field
+		{
+			position: relative;
+			width: 80%;
+			top: 38px;
+			left:60px;
+		}
+		.input-field input
+		{
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid #6666;
+			font-size: 20px;
+			color: black;
+			font-weight: 800;
+			resize: none;
+		}
+		#textarea
+		{
+		position:relative;
+		top:70px;
+		left:70px;
+		font-size: 20px;
+		}
+		#name
+		{
+		    width: 460px;
+		    position:relative;
+			top:7px;
+			left:10px;
+		}
+		#enq_form
+		{
+		width:750px;
+		height: 480px;
+		box-shadow: 2px 2px 10px black;
+		border:1px solid blue;
+		display:none;
+		margin:auto;
+		}
+		.div1
+		{
+		background-image: url('{%static 'img9.jpg' %}');
+		background-repeat:no-repeat;
+		width:900px;
+		height: 400px;
+		box-shadow: 2px 2px 10px black;
+		border:1px solid grey;
+		margin-bottom:25px;
+        margin-left:40px;
+		}
+		.heading
+		{
+		font-family:palatino linotype;
+        position:relative;
+        top:10px;
+		}
+		#date
+		{
+		width:190px;
+		position:relative;
+		left:440px;
+		top:-10px;
+		}
+		#phone
+		{
+		position:relative;
+		top:60px;
+		}
+		#phone_inp
+		{
+		position:relative;
+		top:55px;
+		left:7px;
+		width: 160px;
+		}
+		#ref
+		{
+		position:relative;
+		top:60px;
+		left:-280px;
+		}
+		#ref_inp
+		{
+		position:relative;
+		top:55px;
+		left:-275px;
+		width: 160px;
+		}
+		#enq
+		{
+		position:relative;
+		top:70px;
+		}
+		#enq_for
+		{
+
+		position:relative;
+		top:65px;
+		left:7px;
+		}
+		.editing
+		{
+		box-shadow: 3px 3px 10px grey;
+		background-image: url('{%static 'img5.jpeg' %}');
+		border-radius:10px;
+		}
+        {%endblock%}
+
+        {%block body%}
+
+        <div class="main-panel" style="margin-left:270px;">
+
+          <div class="content-wrapper" style="background:#dce6e4;">
+
+            <!-- Page Title Header Ends-->
+
+            <!--  Dashboard main starts -->
+
+            <div class="div1">
+              <div style="width: 75%;height:100%;" id="st1">
+              </div>
+              <div class="editing" style="margin-left: 80%;margin-top: -350px;width: 150px;height: 80px;">
+                <a href="/students"><center><h4 style="color: white;padding-top: 10px;font-family:palatino linotype;"> Today </h4></center></a>
+				<center><h3 style="color:white;"> {{params.admission.12}} </h3></center>
+              </div>
+
+              <div class="editing" style="margin-left: 80%;margin-top: 40px;width: 150px;height: 80px;">
+                <a href="/students"><center><h4 style="color: white;padding-top: 10px;font-family:palatino linotype;"> This Month </h4></center></a>
+				<center><h3 style="color:white;"> {{params.admission.13}} </h3></center>
+              </div>
+
+              <div class="editing" style="margin-left: 80%;margin-top: 40px;width: 150px;height: 80px;">
+                <a href="/students"><center><h4 style="color: white;padding-top: 10px;font-family:palatino linotype;"> This Year </h4></center></a>
+				<center><h3 style="color:white;"> {{params.admission.14}} </h3></center>
+              </div>
+
+            </div>
+
+            <div class="div1" >
+              <div style="width: 75%;height:100%;box-shadow: 2px 2px 10px black;" id="st2">
+              </div>
+              <div class="editing" style="margin-left: 80%;margin-top: -350px;width: 150px;height: 80px;">
+                <a href="/rec_book"><center><h4 style="color: white;padding-top: 10px;font-family:palatino linotype;"> Today </h4></center></a>
+                <center><h4 style="color:white;font-family:palatino-linotype;">Rs. {{params.receipt.12}}</h4></center>
+              </div>
+
+              <div class="editing" style="margin-left: 80%;margin-top: 40px;width: 150px;height: 80px;">
+                <a href="/rec_book"><center><h4 style="color: white;padding-top: 10px;font-family:palatino linotype;"> This Month </h4></center></a>
+                <center><h4 style="color:white;font-family:palatino-linotype">Rs.{{params.receipt.13}}</h4></center>
+              </div>
+
+              <div class="editing" style="margin-left: 80%;margin-top: 40px;width: 150px;height: 80px;">
+                <a href="/rec_book"><center><h4 style="color: white;padding-top: 10px;font-family:palatino linotype;"> This Year </h4></center></a>
+                <center><h4 style="color:white;font-family:palatino-linotype">Rs.{{params.receipt.14}}</h4></center>
+              </div>
+
+            </div>
+
+            <div class="div1">
+              <div style="width: 75%;height:100%;box-shadow: 2px 2px 10px black;" id="st3">
+              </div>
+              <div class="editing" style="margin-left: 80%;margin-top: -350px;width: 150px;height: 80px;">
+                <a href="/enq_book"><center><h4 style="color: white;padding-top: 10px;font-family:palatino linotype;"> Today </h4></center></a>
+                <center><h3 style="color:white;">{{params.enquiry.12}}</h3></center>
+              </div>
+
+              <div class="editing" style="margin-left: 80%;margin-top: 40px;width: 150px;height: 80px;">
+                <a href="/enq_book"><center><h4 style="color: white;padding-top: 10px;font-family:palatino linotype;"> This Month </h4></center></a>
+                <center><h3 style="color:white;">{{params.enquiry.13}}</h3></center>
+              </div>
+
+              <div class="editing" style="margin-left: 80%;margin-top: 40px;width: 150px;height: 80px;">
+                <a href="/enq_book"><center><h4 style="color: white;padding-top: 10px;font-family:palatino linotype;"> This Year </h4></center></a>
+                <center><h3 style="color:white;">{{params.enquiry.14}}</h3></center>
+              </div>
+
+            </div>
+
+            <div id="enq_form">
+                <form method="post" action="/dashboard" id="sign_up_form"> {% csrf_token %}
+                    <center><h2 class="heading" style="position:relative;top:20px;">Institute Name</h2></center>
+                    <div class="input-field"><input type="date" id="date"></div>
+                    <table>
+                        <tr><td>
+                        <div class="input-field">
+                            <h3 class="heading">Name</h3>
+                        </div></td><td>
+                        <div class="input-field">
+                            <input id="name" type="text" name="name" required="">
+                        </div></td></tr>
+
+                        <tr><td>
+                        <div class="input-field">
+                            <h3 class="heading">Address</h3>
+                        </div></td><td>
+                        <div>
+                            <textarea id="textarea" rows="5" cols="44"> </textarea>
+                        </div></td></tr>
+
+                        <tr><td>
+                        <div class="input-field">
+                            <h3 id="phone" class="heading">Phone&nbsp;No.</h3>
+                        </div></td><td>
+                        <div class="input-field">
+                            <input id="phone_inp"  type="number" name="phone" required="">
+                        </div></td><td>
+                        <div class="input-field">
+                            <h3 id="ref" class="heading">Reference</h3>
+                        </div></td><td>
+                        <div class="input-field">
+                            <input id="ref_inp" type="text" name="reference" required="">
+                        </div></td></tr>
+
+                        <tr><td>
+                        <div class="input-field">
+                            <h3 id="enq" class="heading">Enquired&nbsp;For</h3>
+                        </div></td><td>
+                        <div class="input-field">
+                            <input style="width:460px;" id="enq_for" type="text" name="enq_for" required="">
+                        </div></td></tr>
+
+                        <tr><td>
+                        <div>
+                            <input type="submit" value="Save" class="btn-success edit">
+                        </div></td></tr>
+
+                    </table>
+                </form>
+            </div>
+          </div>
+        </div>
+
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script src="{% static 'index.js' %}"></script>
+            <script src="{% static 'JS/dashboard.js' %}"></script>
+            <script>
+              // Total Students enrolled(graph)
+              google.charts.load("current", {packages:['corechart']});
+              google.charts.setOnLoadCallback(drawChart);
+              function drawChart() {
+                var data = google.visualization.arrayToDataTable([
+                  ["Month", "Students", { role: "style" } ],
+                  ["Jan", {{params.admission.0}}, "#09104c"],
+                  ["Feb", {{params.admission.1}}, "#09104c"],
+                  ["Mar", {{params.admission.2}}, "#09104c"],
+                  ["Apr", {{params.admission.3}}, "#09104c"],
+                  ["May", {{params.admission.4}}, "#09104c"],
+                  ["June", {{params.admission.5}}, "#09104c"],
+                  ["July", {{params.admission.6}}, "#09104c"],
+                  ["Aug", {{params.admission.7}}, "#09104c"],
+                  ["Sept", {{params.admission.8}}, "#09104c"],
+                  ["Oct", {{params.admission.9}}, "#09104c"],
+                  ["Nov", {{params.admission.10}}, "#09104c"],
+                  ["Dec", {{params.admission.11}}, "#09104c"]
+                ]);
+
+                var view = new google.visualization.DataView(data);
+                view.setColumns([0, 1,
+                                 { calc: "stringify",
+                                   sourceColumn: 1,
+                                   type: "string",
+                                   role: "annotation" },
+                                 2]);
+
+                var options = {
+                  title: "Students Enrollment graph ",
+                  bar: {groupWidth: "80%"},
+                  legend: { position: "none" },
+                };
+                var chart = new google.visualization.ColumnChart(document.getElementById("st1"));
+                chart.draw(view, options);
+            }
+
+          // Fee Collection (Month wise)
+              google.charts.load("current", {packages:['corechart']});
+              google.charts.setOnLoadCallback(drawChart_fee_collection);
+              function drawChart_fee_collection() {
+                var data1 = google.visualization.arrayToDataTable([
+                  ["Month", "Rs.", { role: "style" } ],
+                  ["Jan", {{params.receipt.0}}, "#09104c"],
+                  ["Feb", {{params.receipt.1}}, "#09104c"],
+                  ["Mar", {{params.receipt.2}}, "#09104c"],
+                  ["Apr", {{params.receipt.3}}, "#09104c"],
+                  ["May", {{params.receipt.4}}, "#09104c"],
+                  ["June", {{params.receipt.5}}, "#09104c"],
+                  ["July", {{params.receipt.6}}, "#09104c"],
+                  ["Aug", {{params.receipt.7}}, "#09104c"],
+                  ["Sept", {{params.receipt.8}}, "#09104c"],
+                  ["Oct", {{params.receipt.9}}, "#09104c"],
+                  ["Nov", {{params.receipt.10}}, "#09104c"],
+                  ["Dec", {{params.receipt.11}}, "#09104c"]
+                ]);
+
+                var view1 = new google.visualization.DataView(data1);
+                view1.setColumns([0, 1,
+                                 { calc: "stringify",
+                                   sourceColumn: 1,
+                                   type: "string",
+                                   role: "annotation" },
+                                 2]);
+
+                var options1 = {
+                  title: "Fee Collection graph(in rupees)",
+                  bar: {groupWidth: "80%"},
+                  legend: { position: "none" },
+                };
+                var chart1 = new google.visualization.ColumnChart(document.getElementById("st2"));
+                chart1.draw(view1, options1);
+             }
+
+            // Enquiries Recieved
+             google.charts.load("current", {packages:['corechart']});
+              google.charts.setOnLoadCallback(drawChart_enquiry);
+              function drawChart_enquiry() {
+                var data2 = google.visualization.arrayToDataTable([
+                  ["Month", "Students", { role: "style" } ],
+                  ["Jan", {{params.enquiry.0}}, "#09104c"],
+                  ["Feb", {{params.enquiry.1}}, "#09104c"],
+                  ["Mar", {{params.enquiry.2}}, "#09104c"],
+                  ["Apr", {{params.enquiry.3}}, "#09104c"],
+                  ["May", {{params.enquiry.4}}, "#09104c"],
+                  ["June", {{params.enquiry.5}}, "#09104c"],
+                  ["July", {{params.enquiry.6}}, "#09104c"],
+                  ["Aug", {{params.enquiry.7}}, "#09104c"],
+                  ["Sept", {{params.enquiry.8}}, "#09104c"],
+                  ["Oct", {{params.enquiry.9}}, "#09104c"],
+                  ["Nov", {{params.enquiry.10}}, "#09104c"],
+                  ["Dec", {{params.enquiry.11}}, "#09104c"]
+                ]);
+
+                var view2 = new google.visualization.DataView(data2);
+                view2.setColumns([0, 1,
+                                 { calc: "stringify",
+                                   sourceColumn: 1,
+                                   type: "string",
+                                   role: "annotation" },
+                                 2]);
+
+                var options2 = {
+                  title: "Total Enquiries",
+                  bar: {groupWidth: "80%"},
+                  legend: { position: "none" },
+                };
+                var chart2 = new google.visualization.ColumnChart(document.getElementById("st3"));
+                chart2.draw(view2, options2);
+            }
+            </script>
+
+    {%endblock %}

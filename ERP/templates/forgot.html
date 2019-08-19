@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>forgot password</title>
+    <style>
+        #div_bg_show
+		{
+    		position: absolute;
+    		top: 100px;
+			width:400px;
+			right:0;left:700px;
+			margin:auto;
+			height:480px;
+			background-color: #23214c;
+			box-shadow: 0 0 15px 9px #00000096;
+		}
+		body
+		{
+			background-color:#33324c;
+		}
+		.input-field
+		{
+			position: relative;
+			width: 40%;
+			margin-top: 80px;
+			margin-left:50px;
+		}
+		.input-field input
+		{
+			width: 300px;
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid #6666;
+			font-size: 20px;
+			color: white;
+			font-weight: 800;
+			resize: none;
+			position: relative;
+			top:20px;
+
+		}
+		.input-field label{
+			position: absolute;
+			font-family: palatino linotype;
+			top: 5px;
+			left: 20px;
+			padding-left: 10px;
+			pointer-events: none;
+			font-size: 25px;
+			color: #666;
+			font-weight: 600;
+			transition: 0.5s;
+		}
+		.input-field input:focus+label,.input-field input:valid+label
+		{
+			top: -33px;
+			left: -7px;
+			font-size: 30px;
+			padding: 2px 2px;
+
+			color: white;
+			border-radius: 4px;
+		}
+		.btn
+		{
+			margin-top: 55px;
+			margin-left:50px;
+			background-color: cadetblue;
+			color: #fff;
+			padding: 15px 30px;
+			border:none;
+			opacity: 1.7;
+			width: 77%;
+			outline: none;
+			border-radius: 30px;
+			font-weight: 700;
+			text-transform: uppercase;
+			font-size: 16px;
+			transition: .5s;
+			left: 30%;
+		}
+		#p1
+		{
+		    font-size:40px;
+		    color:white;
+		    position:absolute;
+		    top:70px;
+		    left:140px;
+		}
+		#l1
+		{
+		    font-size:30px;
+		    color:white;
+		    position:absolute;
+		    top:40px;
+		    left:810px;
+		}
+    </style>
+</head>
+<body>
+    <label id="l1"> Please fill the following details. </label>
+    <p id="p1"> Recover your password<br> here !! </p>
+    <div id="div_bg_show">
+        <form method="post" action="/"> {% csrf_token %}
+            <div class="input-field">
+                <input type="text" name="username" required="">
+                <label>Registered&nbsp;Username</label>
+            </div>
+            <div class="input-field">
+                <input type="text" name="email" required="">
+                <label>Registered&nbsp;Email</label>
+            </div>
+            <div class="input-field">
+                <input type="number" name="mobile" required="">
+                <label>Registered&nbsp;Mobile</label>
+            </div>
+            <input type="submit" name="submit" value="Recover Password" class="btn">
+        </form>
+    </div>
+</body>
+</html>

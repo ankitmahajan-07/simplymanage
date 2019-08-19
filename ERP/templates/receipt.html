@@ -1,0 +1,160 @@
+{%extends 'inherit.html' %}
+
+        {%block css%}
+		.show_details
+		{
+		  width:600px;
+		  height:420px;
+		  margin:auto;
+          box-shadow: 1px 1px 10px 9px grey;
+          position:relative;
+          top:60px;
+		}
+		.heading
+		{
+		font-family:palatino linotype;
+        position:relative;
+        top:10px;
+        }
+        #date
+		{
+		width:150px;
+		position:relative;
+		left:350px;
+		top:-10px;
+        padding-left:25px;
+		}
+		.input-field
+		{
+			position: relative;
+			top: 38px;
+			left:40px;
+		}
+		.input-field input
+		{
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: black;
+			font-weight: 800;
+			resize: none;
+		}
+		.blank
+		{
+		    position:relative;
+		    top:10px;
+		    width:500px;
+		}
+		.name
+		{
+		    width: 360px;
+		    position:relative;
+			top:4px;
+			left:-360px;
+		}
+		.idle
+		{
+		    margin-top:20px;
+		}
+		.btn-success
+		{
+		position:relative;
+		top:60px;
+		}
+        #words
+        {
+            position:absolute;
+            top:30px;
+            left:10px;
+        }
+        #amt
+        {
+            position:relative;
+            top:60px;
+            left:40px;
+            width:130px;
+        }
+        #sub
+        {
+            position:relative;
+            left:330px;
+        }
+        .mobile
+        {
+            position:relative;
+            top:47px;
+        }
+
+        {%endblock%}
+
+        {%block body%}
+
+        <div class="main-panel" style="margin-left:270px;">
+
+          <div class="content-wrapper" style="background:#dce6e4;">
+
+            <!-- Page Title Header Ends-->
+
+            <!--  Dashboard main starts -->
+
+              <div class="show_details">
+                  <center><h1 class="heading">{{params.user_details.Institute_Name}}</h1></center>
+                  <form method="post" action="/receipt">{% csrf_token %}
+                      <div class="input-field"><input type="text" value="{{params.date}}" name="date" id="date"></div>
+                      <table>
+                          <tr><td>
+                            <div class="input-field">
+                                <h4 class="heading">Received from</h4>
+                            </div></td><td>
+                            <div class="input-field">
+                                <input style="text-transform:uppercase;" class="name" type="text" name="name" required="">
+                            </div></td>
+                          </tr>
+
+                          <tr ><td>
+                            <div class="input-field mobile">
+                                <h4 class="heading">Mobile No.</h4>
+                            </div></td><td>
+                            <div class="input-field mobile">
+                                <input type="number" name="mobile" class="name">
+                            </div>
+                          </td></tr>
+
+                          <tr><td>
+                            <div class="input-field idle">
+                                <h4 class="heading">Amount of</h4>
+                                <h6 id="words">(in words)</h6>
+                            </div></td><td>
+                            <div class="input-field idle">
+                                <input class="name" type="text" required="">
+                            </div></td>
+                          </tr>
+
+                          <tr><td>
+                            <div class="input-field">
+                                <input type="text" class="blank">
+                            </div>
+                          </td></tr>
+
+                          <tr><td>
+                            <div class="input-field idle">
+                                <h4 class="heading">On account of</h4>
+                            </div></td><td>
+                            <div class="input-field idle">
+                                <input class="name" type="text" name="course" required="">
+                            </div></td>
+                          </tr>
+                      </table>
+                      <input type="number" id="amt" name="amount" placeholder="Rs. ">
+                      <input type="submit" id="sub" class="btn btn-success">
+                  </form>
+              </div>
+          </div>
+        </div>
+
+        {%endblock%}

@@ -1,0 +1,247 @@
+{%extends 'inherit.html' %}
+
+        {%block css%}
+
+		.show_details
+		{
+		  width:880px;
+		  height:950px;
+		  margin:auto;
+          box-shadow: 1px 1px 10px 9px grey;
+		}
+		.heading
+		{
+		font-family:palatino linotype;
+        position:relative;
+        top:10px;
+        }
+        #date
+		{
+		width:150px;
+		position:relative;
+		left:620px;
+		top:-10px;
+        padding-left:25px;
+		}
+		.input-field
+		{
+			position: relative;
+			top: 38px;
+			left:60px;
+		}
+		.input-field input
+		{
+			font-family: palatino linotype;
+			padding: 0px 0;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: black;
+			font-weight: 800;
+			resize: none;
+		}
+		.name
+		{
+		    width: 585px;
+		    position:relative;
+			top:7px;
+			left:10px;
+		}
+		.idle
+		{
+		    margin-top:20px;
+		}
+		#textarea
+		{
+		position:relative;
+		top:70px;
+		left:70px;
+		font-size: 20px;
+		}
+		.eq
+		{
+		position:relative;
+		top:45px;
+		}
+		.eq_inp
+		{
+		position:relative;
+		top:40px;
+		left:7px;
+		width: 190px;
+		}
+		.eq1
+		{
+		position:relative;
+		top:45px;
+		left:-315px;
+		}
+		.eq_inp1
+		{
+		position:relative;
+		top:40px;
+		left:-290px;
+		width: 190px;
+		}
+		#s_sign
+		{
+		position:relative;
+		top:100px;
+		}
+		#t_sign
+		{
+		position:relative;
+		top:38px;
+		left:600px;
+		}
+		.edit
+        {
+        position:relative;
+		top:110px;
+		left:360px;
+		width:150px;
+		height:40px;
+		border-radius:15px;
+        }
+        .image
+		{
+		  height:235px;
+		  width:190px;
+		  box-shadow: 1px 1px 10px 9px grey;
+		  position:absolute;
+		  top:260px;
+		  left:990px;
+		}
+		.idle1
+		{
+		margin-top:-10px;
+		margin-bottom:40px;
+		}
+
+        {%endblock%}
+
+        {%block body%}
+
+        <div class="main-panel" style="margin-left:270px;">
+
+          <div class="content-wrapper" style="background:#dce6e4;">
+
+            <!-- Page Title Header Ends-->
+
+            <!--  Dashboard main starts -->
+
+              <div class="show_details">
+                <center><h1 class="heading" style="position:relative;top:20px;">{{params.user_details.Institute_Name}}</h1></center>
+                <form method="post" action="/admission" enctype="multipart/form-data">{% csrf_token %}
+                    <div class="input-field"><input type="text" name="date" value="{{params.date}}" id="date"></div>
+                    <table>
+                      <tr><td>
+                        <div class="input-field">
+                            <h3 class="heading">Name</h3>
+                        </div></td><td>
+                        <div class="input-field">
+                            <input style="text-transform:uppercase;" class="name" type="text" name="name" required="">
+                        </div></td>
+                      </tr>
+
+                      <tr><td>
+                        <div class="input-field idle">
+                            <h3 class="heading">Father's&nbsp;Name</h3>
+                        </div></td><td>
+                        <div class="input-field idle">
+                            <input class="name" type="text" name="f_name" required="">
+                        </div></td>
+                      </tr>
+
+                      <tr><td>
+                        <div class="input-field idle">
+                            <h3 class="heading">Address</h3>
+                        </div ></td><td>
+                        <div class="idle">
+                            <textarea name="address" id="textarea" rows="5" cols="33"> </textarea>
+                        </div></td>
+                      </tr>
+
+                      <tr><td>
+                        <div class="input-field idle">
+                            <h3 class="heading eq">Qualification</h3>
+                        </div></td><td>
+                        <div class="input-field idle">
+                            <input class="eq_inp" type="text" name="qual" required="">
+                        </div></td><td>
+                        <div class="input-field idle">
+                            <h3 class="heading eq1">Gender</h3>
+                        </div></td><td>
+                        <div class="input-field idle">
+                            <input class="eq_inp1" type="text" name="gender" required="">
+                        </div></td>
+                      </tr>
+
+                      <tr><td>
+                        <div class="input-field idle">
+                            <h3 class="heading eq">Phone&nbsp;No.</h3>
+                        </div></td><td>
+                        <div class="input-field idle">
+                            <input  class="eq_inp" type="number" name="phone" required="">
+                        </div></td><td>
+                        <div class="input-field idle">
+                            <h3 class="heading eq1">D.O.B</h3>
+                        </div></td><td>
+                        <div class="input-field idle">
+                            <input class="eq_inp1" type="text" value="dd/mm/yyyy" name="dob" required="">
+                        </div></td>
+                      </tr>
+
+                      <tr><td>
+                        <div class="input-field idle"style="margin-top:60px;">
+                            <h3 class="heading">Course Name</h3>
+                        </div></td><td>
+                        <div class="input-field idle"style="margin-top:60px;">
+                            <input class="name" type="text" name="c_name" required="">
+                        </div></td>
+                      </tr>
+
+
+                      <tr><td>
+                        <div class="input-field idle1">
+                            <h3 class="heading eq">Course Fee</h3>
+                        </div></td><td>
+                        <div class="input-field idle1">
+                            <input  class="eq_inp" type="number" name="fee" required="">
+                        </div></td><td>
+                        <div class="input-field idle1">
+                            <h3 class="heading eq1">Duration</h3>
+                        </div></td><td>
+                        <div class="input-field idle1">
+                            <input class="eq_inp1" type="number" name="duration" required="">
+                        </div></td>
+                      </tr>
+
+                      <tr><td>
+                        <div class="input-field idle">
+                            <h3 class="heading">Upload Photo</h3>
+                        </div></td><td>
+                        <div class="input-field idle">
+                            <input  class="name" type="file" name="photo" required="">
+                        </div></td>
+                      </tr>
+
+                      <tr><td>
+                        <div class="input-field idle">
+                            <h3 class="heading">Identity</h3>
+                        </div></td><td>
+                        <div class="input-field idle">
+                            <input  class="name" type="file" name="identity" required="">
+                        </div></td>
+                      </tr>
+                    </table>
+                        <input class="btn-success edit" type="submit" name="submit" value="Save">
+                </form>
+              </div>
+          </div>
+        </div>
+
+        {%endblock%}

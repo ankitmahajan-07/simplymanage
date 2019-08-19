@@ -1,0 +1,286 @@
+{%extends 'inherit.html' %}
+
+        {%block css%}
+      	.table-bordered
+		{
+		    text-align:center;
+		    font-family: palatino linotype;
+		    margin-top:30px;
+		    border-width:2px;
+		    border-color:black;
+		}
+		.search
+		{
+		    border-radius:15px;
+		    font-size:20px;
+		    height:40px;
+		    width:275px;
+		    margin-left:650px;
+		}
+		.btn-search
+		{
+		    border-radius:15px;
+		}
+		.search_div
+		{
+		    margin-top:30px;
+		    margin-bottom:-15px;
+		}
+		.show_details
+		{
+		  width:900px;
+		  height:650px;
+		  margin:auto;
+          box-shadow: 1px 1px 10px 9px grey;
+		}
+		.input-field
+		{
+		    width: 300px;
+			font-family: palatino linotype;
+			padding-left:20px;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: black;
+			font-weight: 800;
+			resize: none;
+			position:relative;
+			left:100px;
+			top:30px;
+
+		}
+		.input-field2
+		{
+		    width: 200px;
+			font-family: palatino linotype;
+			padding-left: 20px;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: black;
+			font-weight: 800;
+			resize: none;
+			position:relative;
+			left:100px;
+			top:50px;
+		}
+		.input-field3
+		{
+		    width: 200px;
+			font-family: palatino linotype;
+			padding-left: 20px;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: black;
+			font-weight: 800;
+			resize: none;
+			position:relative;
+			left:100px;
+			top:80px;
+		}
+		.input-field4
+		{
+		    width: 200px;
+			font-family: palatino linotype;
+			padding-left: 20px;
+			box-sizing: border-box;
+			background: transparent;
+			border:none;
+			outline: none;
+			border-bottom: 2px solid black;
+			font-size: 20px;
+			color: black;
+			font-weight: 800;
+			resize: none;
+			position:relative;
+			left:100px;
+			top:110px;
+		}
+		.headings
+		{
+		  font-family: palatino linotype;
+		  position:relative;
+		  left:80px;
+		  top:40px;
+		}
+		.headings2
+		{
+		  font-family: palatino linotype;
+		  position:relative;
+		  left:80px;
+		  top:60px;
+		}
+		.headings3
+		{
+		  font-family: palatino linotype;
+		  position:relative;
+		  left:80px;
+		  top:90px;
+		}
+		.headings4
+		{
+		  font-family: palatino linotype;
+		  position:relative;
+		  left:80px;
+		  top:120px;
+		}
+		.image
+		{
+		  height:240px;
+		  width:200px;
+		  box-shadow: 1px 1px 10px 9px grey;
+		  margin-top:60px;
+		  margin-left:200px;
+		}
+		#address
+		{
+		  height:100px;
+		  width:300px;
+		  border-color:black;
+		  border-width:1px;
+		  position:relative;
+		  top:30px;
+		  left:100px;
+		}
+
+        {%endblock%}
+
+        {%block body%}
+
+        <div class="main-panel" style="margin-left:270px;">
+
+          <div class="content-wrapper" style="background:#dce6e4;">
+
+            <!-- Page Title Header Ends-->
+
+            <!--  Dashboard main starts -->
+
+              <div class="show_details" id="show_details" style="display:none;">
+				  <center> <h2 style="color:black;position:relative;top:20px;font-family:palatino linotype"> {{params.user_details.Institute_Name}} </h2> </center>
+                <table>
+                  <tr>
+                    <td><h4 class="headings">Name</h4></td>
+                    <td><input id="name" class="input-field" type="text" readonly> </td>
+                    <td colspan="2" rowspan="3">
+                      <div class="image">
+                        <img id="photo" height="240px" width="200px" src="" readonly>
+                      </div>
+                    </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings">Father's&nbsp;Name</h4></td>
+                    <td><input id="f_name" class="input-field" type="text" readonly> </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings">Address</h4></td>
+                    <td><input id="address" type="text" readonly> </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings">Phone No.</h4></td>
+                    <td><input id="phone" class="input-field" type="text" readonly> </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings2">Course&nbsp;Name</h4></td>
+                    <td><input id="c_name" class="input-field2" type="text" readonly> </td>
+                    <td><h4 class="headings2">Duration</h4></td>
+                    <td><input id="duration" class="input-field2" type="text" readonly> </td>
+                  </tr>
+
+                  <tr>
+                    <td><h4 class="headings3">Reg.&nbsp;Date</h4></td>
+                    <td><input id="reg_date" class="input-field3" type="text" readonly> </td>
+                    <td><h4 class="headings3">Total&nbsp;Fee</h4></td>
+                    <td><input id="total_fee" class="input-field3" type="text" readonly> </td>
+                  </tr>
+                  <tr>
+                    <td><h4 class="headings4">Paid&nbsp;Fee</h4></td>
+                    <td><input id="paid_fee" class="input-field4" type="text" readonly> </td>
+                    <td><h4 class="headings4">Balance&nbsp;Fee</h4></td>
+                    <td><input id="balance" class="input-field4" type="text" readonly> </td>
+                  </tr>
+                </table>
+              </div>
+
+              <div class="search_div">
+                  <form method="post" name="search" action="/students"> {% csrf_token %}
+                      <table><tr><th>
+                        <input style="text-transform:uppercase;" class="search" type="text" name="get_search" placeholder="Search here">
+                        </th><th><button type="submit" name="btn-search" class=" btn-search btn-success"><i class="material-icons" style="font-size:33px">search</i>
+                      </button></th>
+                        </tr>
+                      </table>
+                  </form>
+              </div>
+
+              <div class="container">
+                  <table id="students_table" class="table table-hover table-bordered">
+					  <tr><th>ID</th><th>Name</th><th>Address</th><th>Course Name</th><th>Reg. Date</th><th>Phone No.</th><th>More Details</th><tr>
+                    {%for i in params.admission%}
+                    <tr>
+                      <td>{{i.id}}</td>
+                      <td>{{i.Name}}</td>
+					  <td>{{i.Address}}</td>
+                      <td>{{i.Course_Name}}</td>
+                      <td>{{i.Date}}</td>
+                      <td>{{i.Phone}}</td>
+					  <td><a href="#">click here</a></td>
+					  <td style="display:none">{{i.F_Name}}</td>
+					  <td style="display:none">{{i.Fee}}</td>
+					  <td style="display:none">{{i.Duration}}</td>
+					  <td style="display:none">{{i.photo}}</td>
+                    </tr>
+                    {%endfor%}
+                  </table>
+              </div>
+
+          </div>
+        </div>
+
+		<script>
+            var table = document.getElementById('students_table'),rIndex;
+            for(var i=0; i<table.rows.length; i++)
+            {
+                table.rows[i].onclick = function()
+                {
+                    document.getElementById('show_details').style="display:block;";
+                    rIndex = this.rowIndex;
+                    document.getElementById('name').value=this.cells[1].innerHTML;
+                    document.getElementById('address').value =this.cells[2].innerHTML;
+                    document.getElementById('c_name').value=this.cells[3].innerHTML;
+                    document.getElementById('reg_date').value=this.cells[4].innerHTML;
+                    document.getElementById('phone').value=this.cells[5].innerHTML;
+                    document.getElementById('f_name').value=this.cells[7].innerHTML;
+					document.getElementById('total_fee').value =this.cells[8].innerHTML;
+                    document.getElementById('duration').value =this.cells[9].innerHTML;
+                    document.getElementById('photo').src =this.cells[10].innerHTML;
+
+					var name = this.cells[1].innerHTML;
+					var mobile = this.cells[5].innerHTML;
+					total_fee = this.cells[8].innerHTML;
+					var paid_fee = 0;
+					{%for k in params.receipt%}
+						if('{{k.Name}}'== name && '{{k.Mobile}}'== mobile)
+						{
+							paid_fee = paid_fee + parseInt({{k.Amount}});
+						}
+					{%endfor%}
+					document.getElementById('paid_fee').value =paid_fee;
+					document.getElementById('balance').value =total_fee - paid_fee;
+                };
+            }
+		</script>
+
+        {%endblock%}
